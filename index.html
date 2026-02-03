@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Will you be my Valentine?</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Javeria, Will you be my Valentine?</title>
 
   <!-- Confetti library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
@@ -17,7 +19,9 @@
       --yesHover: #ff1f68;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -47,14 +51,14 @@
       backdrop-filter: blur(10px);
       border-radius: 22px;
       text-align: center;
-      box-shadow: 0 18px 60px rgba(0,0,0,.15);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .15);
     }
 
     .art {
       width: min(260px, 80vw);
       margin: 0 auto 10px;
       display: block;
-      filter: drop-shadow(0 10px 14px rgba(0,0,0,.12));
+      filter: drop-shadow(0 10px 14px rgba(0, 0, 0, .12));
     }
 
     h1 {
@@ -80,7 +84,7 @@
       border-radius: 999px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 10px 24px rgba(0,0,0,.14);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .14);
       user-select: none;
       -webkit-tap-highlight-color: transparent;
       transition: transform .12s ease, background .12s ease;
@@ -91,7 +95,10 @@
       background: var(--yes);
       color: #fff;
     }
-    #yesBtn:hover { background: var(--yesHover); }
+
+    #yesBtn:hover {
+      background: var(--yesHover);
+    }
 
     #noBtn {
       left: 62%;
@@ -123,8 +130,68 @@
     }
 
     @keyframes pop {
-      from { transform: scale(.96); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      from {
+        transform: scale(.96);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-5px) rotate(-5deg);
+      }
+
+      50% {
+        transform: translateX(5px) rotate(5deg);
+      }
+
+      75% {
+        transform: translateX(-5px) rotate(-5deg);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .shake {
+      animation: shake 0.4s ease-in-out;
+      background-color: #ff4757 !important;
+      color: white !important;
+    }
+
+    .sad-emoji {
+      position: fixed;
+      pointer-events: none;
+      font-size: 6rem;
+      z-index: 10000;
+      animation: sad-float 1.5s forwards;
+    }
+
+    @keyframes sad-float {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+
+      20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -150%) scale(1);
+      }
     }
   </style>
 </head>
@@ -137,41 +204,38 @@
     <svg class="art" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="fur" x1="0" x2="1">
-          <stop offset="0" stop-color="#f7c7a1"/>
-          <stop offset="1" stop-color="#f2a97b"/>
+          <stop offset="0" stop-color="#f7c7a1" />
+          <stop offset="1" stop-color="#f2a97b" />
         </linearGradient>
         <linearGradient id="heart" x1="0" x2="1">
-          <stop offset="0" stop-color="#ff4d7d"/>
-          <stop offset="1" stop-color="#ff1f68"/>
+          <stop offset="0" stop-color="#ff4d7d" />
+          <stop offset="1" stop-color="#ff1f68" />
         </linearGradient>
       </defs>
 
       <path d="M250 50 C250 33 270 25 282 38
                C294 25 314 33 314 50
                C314 78 282 92 282 106
-               C282 92 250 78 250 50Z"
-            fill="url(#heart)"/>
+               C282 92 250 78 250 50Z" fill="url(#heart)" />
 
       <path d="M90 120 C90 70 140 40 190 60
                C240 40 290 70 290 120
                C290 180 240 210 190 210
-               C140 210 90 180 90 120Z"
-            fill="url(#fur)"/>
+               C140 210 90 180 90 120Z" fill="url(#fur)" />
 
-      <path d="M110 92 L95 55 L140 78 Z" fill="#f2a97b"/>
-      <path d="M270 92 L285 55 L240 78 Z" fill="#f2a97b"/>
+      <path d="M110 92 L95 55 L140 78 Z" fill="#f2a97b" />
+      <path d="M270 92 L285 55 L240 78 Z" fill="#f2a97b" />
 
-      <circle cx="160" cy="130" r="8"/>
-      <circle cx="220" cy="130" r="8"/>
+      <circle cx="160" cy="130" r="8" />
+      <circle cx="220" cy="130" r="8" />
 
       <path d="M190 144 C186 144 182 148 182 152
                C182 160 190 164 190 170
                C190 164 198 160 198 152
-               C198 148 194 144 190 144Z"
-            fill="#ff7aa2"/>
+               C198 148 194 144 190 144Z" fill="#ff7aa2" />
     </svg>
 
-    <h1>nirali will you be my valentine?</h1>
+    <h1>Javeria will you be my valentine?</h1>
 
     <section class="button-zone" id="zone">
       <button id="yesBtn">Yes</button>
@@ -183,11 +247,7 @@
 
     <section class="result" id="result">
       <h2>YAY! 🎉</h2>
-      <img
-        class="fireworks"
-        src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif"
-        alt="Fireworks"
-      />
+      <img class="fireworks" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="Fireworks" />
     </section>
   </main>
 
@@ -197,6 +257,26 @@
     const noBtn = document.getElementById("noBtn");
     const result = document.getElementById("result");
     const hint = document.getElementById("hint");
+
+    // Preload audio
+    const sadTrombone = new Audio("https://cdn.jsdelivr.net/gh/leonsegal/sad_trombone/sad_trombone.mp3");
+    const applause = new Audio("https://raw.githubusercontent.com/bradtraversy/50projects50days/master/sound-board/sounds/applause.mp3");
+
+    function showSadEmoji() {
+      const emoji = document.createElement("div");
+      emoji.textContent = "😢";
+      emoji.classList.add("sad-emoji");
+
+      // Center on screen or near button? Let's do center screen for drama
+      emoji.style.left = "50%";
+      emoji.style.top = "50%";
+
+      document.body.appendChild(emoji);
+
+      setTimeout(() => {
+        emoji.remove();
+      }, 1500);
+    }
 
     /* ---------- CONFETTI ---------- */
     const confettiCanvas = document.getElementById("confettiCanvas");
@@ -251,46 +331,153 @@
     }
 
     /* ---------- NO BUTTON RUNS AWAY ---------- */
-    function clamp(n, min, max) {
-      return Math.max(min, Math.min(max, n));
+    // Physics state
+    let state = {
+      x: 0,
+      y: 0,
+      vx: 0,
+      vy: 0,
+      isInitialized: false
+    };
+
+    function initButtonState() {
+      if (state.isInitialized) return;
+      const b = noBtn.getBoundingClientRect();
+      const z = zone.getBoundingClientRect();
+      state.x = b.left - z.left;
+      state.y = b.top - z.top;
+      state.isInitialized = true;
+      requestAnimationFrame(gameLoop);
+    }
+
+    function gameLoop() {
+      if (!state.isInitialized) return;
+
+      // Apply friction (0.9 to 0.95 is usually good)
+      state.vx *= 0.92;
+      state.vy *= 0.92;
+
+      // Update position
+      state.x += state.vx;
+      state.y += state.vy;
+
+      // Boundary checks (Bounce effect?)
+      const z = zone.getBoundingClientRect();
+      const b = noBtn.getBoundingClientRect();
+      const maxX = z.width - b.width;
+      const maxY = z.height - b.height;
+
+      // Simple bounce or hard clamp? 
+      // Soft clamp with bounce looks better
+      if (state.x < 0) { state.x = 0; state.vx *= -0.5; }
+      if (state.y < 0) { state.y = 0; state.vy *= -0.5; }
+      if (state.x > maxX) { state.x = maxX; state.vx *= -0.5; }
+      if (state.y > maxY) { state.y = maxY; state.vy *= -0.5; }
+
+      noBtn.style.left = state.x + "px";
+      noBtn.style.top = state.y + "px";
+      noBtn.style.transform = "none";
+
+      requestAnimationFrame(gameLoop);
     }
 
     function moveNo(px, py) {
-      const z = zone.getBoundingClientRect();
+      initButtonState();
+
       const b = noBtn.getBoundingClientRect();
+      // Calculate center of button
+      const bx = b.left + b.width / 2;
+      const by = b.top + b.height / 2;
 
-      let dx = (b.left + b.width / 2) - px;
-      let dy = (b.top + b.height / 2) - py;
-      let mag = Math.hypot(dx, dy) || 1;
-      dx /= mag;
-      dy /= mag;
+      // Vector from mouse to button
+      let dx = bx - px;
+      let dy = by - py;
+      let dist = Math.hypot(dx, dy);
 
-      let newLeft = (b.left - z.left) + dx * 150;
-      let newTop  = (b.top - z.top) + dy * 150;
+      // If extremely close (touching), give it a random kick if needed
+      if (dist < 1) {
+        dx = Math.random() * 2 - 1;
+        dy = Math.random() * 2 - 1;
+        dist = Math.hypot(dx, dy) || 1;
+      }
 
-      newLeft = clamp(newLeft, 0, z.width - b.width);
-      newTop  = clamp(newTop, 0, z.height - b.height);
+      // Repulsion force
+      // The closer the mouse, the stronger the push.
+      // Force = constant / distance (or similar)
+      // drastic increase in force
+      const forceStr = 5000 / (dist * dist + 10);
 
-      noBtn.style.left = newLeft + "px";
-      noBtn.style.top = newTop + "px";
-      noBtn.style.transform = "none";
+      // Normalize direction
+      const dirX = dx / dist;
+      const dirY = dy / dist;
+
+      // Add to velocity
+      state.vx += dirX * forceStr;
+      state.vy += dirY * forceStr;
+
+      // Cap max speed but allow bursts
+      const speed = Math.hypot(state.vx, state.vy);
+      const maxSpeed = 30; // Increased max speed for quicker escapes
+      if (speed > maxSpeed) {
+        state.vx = (state.vx / speed) * maxSpeed;
+        state.vy = (state.vy / speed) * maxSpeed;
+      }
 
       growYes();
     }
 
     zone.addEventListener("pointermove", e => {
+      initButtonState();
       const b = noBtn.getBoundingClientRect();
-      const d = Math.hypot(
-        (b.left + b.width / 2) - e.clientX,
-        (b.top + b.height / 2) - e.clientY
-      );
-      if (d < 140) moveNo(e.clientX, e.clientY);
+      const bx = b.left + b.width / 2;
+      const by = b.top + b.height / 2;
+      const dist = Math.hypot(bx - e.clientX, by - e.clientY);
+
+      // Influence radius - increased to ensure it moves WAY before you get close
+      if (dist < 300) {
+        moveNo(e.clientX, e.clientY);
+      }
     });
 
-    noBtn.addEventListener("click", e => e.preventDefault());
+    // Touch/Hover handlers just add a big kick
+    noBtn.addEventListener("mouseover", e => {
+      // Kick it away hard
+      const angle = Math.random() * Math.PI * 2;
+      state.vx += Math.cos(angle) * 20;
+      state.vy += Math.sin(angle) * 20;
+    });
+
+    noBtn.addEventListener("touchstart", e => {
+      e.preventDefault();
+      const angle = Math.random() * Math.PI * 2;
+      state.vx += Math.cos(angle) * 20;
+      state.vy += Math.sin(angle) * 20;
+    });
+
+    noBtn.addEventListener("click", e => {
+      e.preventDefault();
+      noBtn.innerText = "Whoops!";
+      noBtn.classList.add("shake");
+
+      // Play immediately
+      sadTrombone.currentTime = 0;
+      sadTrombone.play().catch(e => console.log("Audio play failed:", e));
+
+      showSadEmoji();
+
+      // Reset after 1s so they can try again (if they dare)
+      setTimeout(() => {
+        noBtn.innerText = "No";
+        noBtn.classList.remove("shake");
+      }, 1000);
+    });
 
     /* ---------- YES CLICK ---------- */
     yesBtn.addEventListener("click", () => {
+      // Play applause sound immediately
+      applause.currentTime = 0;
+      applause.play().catch(e => console.log("Audio play failed:", e));
+
       zone.style.display = "none";
       hint.style.display = "none";     // HIDE THE HINT
       result.style.display = "block";
@@ -299,7 +486,5 @@
     });
   </script>
 </body>
+
 </html>
-
-
-
