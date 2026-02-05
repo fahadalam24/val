@@ -123,10 +123,12 @@
       margin: 10px 0;
     }
 
-    .fireworks {
+    .result-img {
       width: min(380px, 90vw);
       margin: 0 auto;
       display: block;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     @keyframes pop {
@@ -247,7 +249,7 @@
 
     <section class="result" id="result">
       <h2>YAY! 🎉</h2>
-      <img class="fireworks" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="Fireworks" />
+      <img class="result-img" src="./photo.jpeg" alt="Us" />
     </section>
   </main>
 
@@ -260,7 +262,8 @@
 
     // Preload audio
     const sadTrombone = new Audio("https://cdn.jsdelivr.net/gh/leonsegal/sad_trombone/sad_trombone.mp3");
-    const applause = new Audio("https://raw.githubusercontent.com/bradtraversy/50projects50days/master/sound-board/sounds/applause.mp3");
+    // Use local file, ensure spaces are encoded or quoted properly
+    const happySong = new Audio("Chalo%20Door%20Kahin%20cut.mp3");
 
     function showSadEmoji() {
       const emoji = document.createElement("div");
@@ -474,9 +477,9 @@
 
     /* ---------- YES CLICK ---------- */
     yesBtn.addEventListener("click", () => {
-      // Play applause sound immediately
-      applause.currentTime = 0;
-      applause.play().catch(e => console.log("Audio play failed:", e));
+      // Play song
+      happySong.currentTime = 0;
+      happySong.play().catch(e => console.log("Audio play failed:", e));
 
       zone.style.display = "none";
       hint.style.display = "none";     // HIDE THE HINT
