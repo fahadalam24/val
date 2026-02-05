@@ -195,6 +195,38 @@
         transform: translate(-50%, -150%) scale(1);
       }
     }
+
+    /* MOBILE TWEAKS */
+    @media (max-width: 600px) {
+      .card {
+        padding: 20px 16px;
+        width: 95vw;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin: 10px 0 14px;
+      }
+
+      .button-zone {
+        height: 120px;
+        width: 100%;
+      }
+
+      button {
+        padding: 14px 20px;
+        font-size: 16px;
+      }
+
+      /* Adjust positions slightly for mobile */
+      #yesBtn {
+        left: 10%;
+      }
+
+      #noBtn {
+        left: 55%;
+      }
+    }
   </style>
 </head>
 
@@ -436,8 +468,14 @@
       const by = b.top + b.height / 2;
       const dist = Math.hypot(bx - e.clientX, by - e.clientY);
 
-      // Influence radius - increased to ensure it moves WAY before you get close
-      if (dist < 300) {
+      const dist = Math.hypot(bx - e.clientX, by - e.clientY);
+
+      // Influence radius - dynamic based on screen width
+      // Desktop: 300px, Mobile: 150px (so they can actually tap near it)
+      const isMobile = window.innerWidth < 600;
+      const radius = isMobile ? 150 : 300;
+
+      if (dist < radius) {
         moveNo(e.clientX, e.clientY);
       }
     });
