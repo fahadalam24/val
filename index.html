@@ -77,7 +77,8 @@
     button {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
+      top: 50%;
+      transform: translate(-50%, -50%);
       padding: 16px 24px;
       font-size: 18px;
       font-weight: 800;
@@ -91,7 +92,7 @@
     }
 
     #yesBtn {
-      left: 18%;
+      left: 30%;
       background: var(--yes);
       color: #fff;
     }
@@ -101,7 +102,7 @@
     }
 
     #noBtn {
-      left: 62%;
+      left: 70%;
       background: #e5e7eb;
       color: #111827;
     }
@@ -219,13 +220,13 @@
         font-size: 16px;
       }
 
-      /* Adjust positions slightly for mobile */
+      /* Adjust positions slightly for mobile for perfect symmetry */
       #yesBtn {
-        left: 10%;
+        left: 25%;
       }
 
       #noBtn {
-        left: 55%;
+        left: 75%;
       }
     }
   </style>
@@ -236,7 +237,7 @@
 
   <main class="card">
     <!-- ANIMAL WITH HEART -->
-    <svg class="art" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+    <svg class="art" viewBox="30 0 320 240" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="fur" x1="0" x2="1">
           <stop offset="0" stop-color="#f7c7a1" />
@@ -363,7 +364,7 @@
     let yesScale = 1;
     function growYes() {
       yesScale = Math.min(2.2, yesScale + 0.1);
-      yesBtn.style.transform = `translateY(-50%) scale(${yesScale})`;
+      yesBtn.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
     }
 
     /* ---------- NO BUTTON RUNS AWAY ---------- */
